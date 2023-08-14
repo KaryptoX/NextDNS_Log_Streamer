@@ -1,4 +1,4 @@
-# NextDNS API Log Streamer
+# NextDNS API Log Streamer / Exporter
 A simple Python script for collecting and exporting NextDNS logs as JSON - file or direct output to STDOUT-. Supports crontab mode or "endless" mode. Simple and optimized for the use in SIEM systems e.g. as scripted input.
 
 ## Idea
