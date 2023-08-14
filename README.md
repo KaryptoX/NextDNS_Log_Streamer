@@ -41,7 +41,7 @@ Used for JSON log export and keeping the time. Only used if "write_file = 1"
 The script will notice if there was a gap (higher than "fetch_interval = XX") between the last runtime and the current runtime and than will ONCE collect the historical logs in between (that no logs are missed). Afterwards it will continue with the current timestamp.
 > Because of log duplicate reasons etc. the script will only do the "historic collection" once per runtime!!
 
-Hint! In "crontab_mode = 1" the file in (default location) "/tmp/nextdns_log_streamer_startover.log" must be set from "1" to "0" after e.g. reboot or re-run of the script; else the script will not perform the "historic data collection" anymore! The script automatically sets "1" in that location if an historic run already took place in crontab mode. If you use "crontab_mode = 0" thats not needed!
+Hint! In "crontab_mode = 1" the file in (default location) "/tmp/nextdns_log_streamer_startover.log" must be set from "1" to "0" after e.g. reboot or re-run of the script; else the script will not perform the "historic data collection" anymore! The script automatically sets "1" in that location if an historic run already took place in crontab mode. If you use "crontab_mode = 0" that step is not needed!
 
 Hint! Some systems automatically clean the "/tmp/" location after reboot etc. If thats not the case you can set a crontab entry like following:
 
