@@ -48,3 +48,7 @@ Hint! Some systems automatically clean the "/tmp/" location after reboot etc. If
 > @reboot         root    sed -i 's/1/0/g' /tmp/nextdns_log_streamer_startover.log # Informs log-streamer that historic events should be collected ONCE
 
 Which will set "0" to the file automatically after reboot. This tells the script that the "historic collection" was not performed yet; can still be performed once.
+
+## Known Issues
+- Duplicate Logs
+The script ensures that the timeframes sent to the API are not overlapping. Therefore no duplicates should take place. Nevertheless there seems to be a bug in the API of NextDNS. Unfortunately I saw that sometimes some logs will be collected twice although the log was not part of the current timestamp sent to the API. I'm still searching for a solution regarding that point..
