@@ -35,3 +35,16 @@ Used for temporary files. Always used.
 > log_file_path = "/var/log/"
 
 Used for JSON log export and keeping the time. Only used if "write_file = 1"
+
+## Historic Data / API Error Case
+
+The script will notice if there was a gap (higher than "fetch_interval = XX") between the last runtime and the current runtime and than will ONCE collect the historical logs in between (that no logs are missed). Afterwards it will continue with the current timestamp.
+> Because of log duplicate reasons etc. the script will only do the "historic collection" once per runtime!!
+
+Hint! In "crontab_mode = 1" the file in (default location) "/tmp/nextdns_log_streamer_startover.log" must be set from "1" to "0" after e.g. reboot or re-run of the script; else the script will not perform the "historic data collection" anymore! The script automatically sets "1" in that location if an historic run already took place in crontab mode.
+
+Hint! Some systems automatically clean the "/tmp/" location after reboot etc. If thats not the case you can set a crontab entry like following:
+
+> @reboot         root    sed -i 's/1/0/g' /tmp/nextdns_log_streamer_startover.log # Informs log-streamer that historic events should be collected ONCE
+
+Which will set "0" to the file automatically after reboot. This tells the script that the "historic collection" was not performed yet; can still be performed once. If that file will not be adjusted after re-run of the script or reboot of the system, the script will not check for missing logs in "crontab_mode = 1" mode.
