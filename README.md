@@ -30,11 +30,11 @@ Should the script export the logs to STDOUT via print or write a file?
 Destinations where the files will be written to
 > tmp_file_path = "/tmp/"
 
-Used for temporary files. Always used.
+Used for temporary files. Always used. Ensure the user who runs the script has rights to write to the destination!
 
 > log_file_path = "/var/log/"
 
-Used for JSON log export and keeping the time. Only used if "write_file = 1"
+Used for JSON log export and keeping the time. Only used if "write_file = 1". Ensure the user who runs the script has rights to write to the destination!
 
 ## Historic Data / API Error Case
 
