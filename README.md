@@ -16,7 +16,7 @@ Add your API Key from NextDNS account settings here:
 Add your profiles from the individual NextDNS profile pages to the list:
 > profiles = ["PROFILE1","PROFILE2","..."]
 
-Define the fetch interval; ensure that you've set the fetch interval to the same interval you've planned the cronjob/ e.g. if you are using cron "every minute" = 60 ; in "endless" mode the script will run in that interval too. Values below 20 might cause issues with the NextDNS API and resulting duplicates in output!
+Define the fetch interval; ensure that you've set the fetch interval to the same interval you've planned the cronjob e.g. if you are using cron "every minute" = 60 ; in "endless" mode the script will run in that interval too. Values below 20 might cause issues with the NextDNS API and resulting duplicates in output!
 > fetch_interval = 60
 
 Define if the script should run in crontab mode or "endless" mode:
