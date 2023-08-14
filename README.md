@@ -27,9 +27,11 @@ If you choose "crontab_mode = 0" the script will run endless (except cancelled b
 Should the script export the logs to STDOUT via print or write a file?
 > "write_file = 0"
 
-Destinations where the log files will be written to
+Destinations where the files will be written to
 > tmp_file_path = "/tmp/"
+
+Used for temporary files. Always used.
 
 > log_file_path = "/var/log/"
 
-Only used if "write_file = 1"
+Used for JSON log export and keeping the time. Only used if "write_file = 1"
