@@ -49,6 +49,12 @@ Hint! Some systems automatically clean the "/tmp/" location after reboot etc. If
 
 Which will set "0" to the file automatically after reboot. This tells the script that the "historic collection" was not performed yet; can still be performed once.
 
-## Known Issues
+## Known Issues & FAQ
 - Duplicate Logs
-The script ensures that the timeframes sent to the API are not overlapping. Therefore no duplicates should take place. Nevertheless there seems to be a bug in the API of NextDNS. Unfortunately I saw that sometimes some logs will be collected twice although the log was not part of the current timestamp sent to the API. I'm still searching for a solution regarding that point..
+
+
+The script ensures that the timeframes sent to the API are not overlapping. Therefore no duplicates should take place. Nevertheless there seems to be a bug in the API processing of NextDNS. Unfortunately I saw that sometimes some logs will be collected twice although the log was not part of the current timestamp sent to the API. I'm still searching for a solution regarding that point.. Fortunately, this does not seem to occur often.
+
+- Logs Missing
+
+The script fetchs the logs available in your defined profiles for your account. Please ensure that the logs will not be deleted from NextDNS side before collection through the script. The setting can be adjusted for every profile in the NextDNS settings. I recommend using at least 1 day that e.g. in error case also historic logs can be fetched from the script (once).
