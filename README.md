@@ -27,16 +27,18 @@ If you choose "crontab_mode = 0" the script will run endless (except cancelled b
 Should the script export the logs to STDOUT via print or write a file?
 > "write_file = 0"
 
+> Default location of JSON export: "/tmp/nextdns_log_streamer.json"
+
 Destinations where the files will be written to
 > tmp_file_path = "/tmp/"
 
-Used for temporary files. Always used. 
+Used for temporary files.
 
 Ensure the user who runs the script has rights to write to the destination!
 
 > log_file_path = "/var/log/"
 
-Used for JSON log export and keeping the time. Only used if "write_file = 1". 
+Persistent path; e.g. used for keeping the time.
 
 Ensure the user who runs the script has rights to write to the destination!
 
