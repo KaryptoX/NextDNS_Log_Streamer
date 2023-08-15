@@ -42,7 +42,7 @@ Persistent path; e.g. used for keeping the time.
 
 Ensure the user who runs the script has rights to write to the destination!
 
-## Historic Data / API Error Case
+## Historic Data
 
 The script will notice if there was a gap (higher than "fetch_interval = XX") between the last runtime and the current runtime and than will ONCE collect the historical logs in between (that no logs are missed). Afterwards it will continue with the current timestamp.
 > Because of log duplicate reasons etc. the script will only do the "historic collection" once per runtime!!
@@ -53,7 +53,11 @@ Hint! Some systems automatically clean the "/tmp/" location after reboot etc. If
 
 > @reboot   sed -i 's/1/0/g' /tmp/nextdns_log_streamer_startover.log   # Informs log-streamer that historic events should be collected ONCE
 
-Which will set "0" to the file automatically after reboot. This tells the script that the "historic collection" was not performed yet; can still be performed once.
+Which will set "0" to the file automatically after reboot. This tells the script that the "historic collection" was not performed yet.
+
+## API Error Case
+
+In case of an API error e.g. HTTP response code "404" the script will save the last timestamp and will continue in the next run there. That process will be repeated until the logs were collected successfully. After successfull collection the script will continue with the current timestamp to avoid duplicate log collection.
 
 ## Known Issues & FAQ
 - Duplicate Logs
@@ -67,4 +71,4 @@ The script fetchs the logs available in your defined profiles for your account. 
 
 - Change crontab_mode from "0" to "1"
 
-If you change the crontab mode from "0" to "1" ensure that you set "0" in "nextdns_log_streamer_startover.log"; else the "historic data collection" is deactivated for the initial start.
+If you change the crontab mode from "0" to "1" ensure that you've set "0" in "nextdns_log_streamer_startover.log" (or delete the whole file); else the "historic data collection" is deactivated for the initial start.
