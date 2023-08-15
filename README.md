@@ -51,7 +51,7 @@ Hint! In "crontab_mode = 1" the file in (default location) "/tmp/nextdns_log_str
 
 Hint! Some systems automatically clean the "/tmp/" location after reboot etc. If thats not the case you can set a crontab entry like following:
 
-> @reboot         root    sed -i 's/1/0/g' /tmp/nextdns_log_streamer_startover.log # Informs log-streamer that historic events should be collected ONCE
+> @reboot sed -i 's/1/0/g' /tmp/nextdns_log_streamer_startover.log # Informs log-streamer that historic events should be collected ONCE
 
 Which will set "0" to the file automatically after reboot. This tells the script that the "historic collection" was not performed yet; can still be performed once.
 
