@@ -51,7 +51,7 @@ Hint! In "crontab_mode = 1" the file in (default location) "/tmp/nextdns_log_str
 
 Hint! Some systems automatically clean the "/tmp/" location after reboot etc. If thats not the case you can set a crontab entry like following:
 
-> @reboot sed -i 's/1/0/g' /tmp/nextdns_log_streamer_startover.log # Informs log-streamer that historic events should be collected ONCE
+> @reboot   sed -i 's/1/0/g' /tmp/nextdns_log_streamer_startover.log   # Informs log-streamer that historic events should be collected ONCE
 
 Which will set "0" to the file automatically after reboot. This tells the script that the "historic collection" was not performed yet; can still be performed once.
 
@@ -64,3 +64,7 @@ The script ensures that the timeframes sent to the API are not overlapping. Ther
 - Logs Missing
 
 The script fetchs the logs available in your defined profiles for your account. Please ensure that the logs will not be deleted from NextDNS side before collection through the script. The setting can be adjusted for every profile in the NextDNS settings. I recommend using at least 1 day that e.g. in error case also historic logs can be fetched from the script (once).
+
+- Change crontab_mode from "0" to "1"
+
+If you change the crontab mode from "0" to "1" ensure that you set "0" in "nextdns_log_streamer_startover.log"; else the "historic data collection" is deactivated for the initial start.
